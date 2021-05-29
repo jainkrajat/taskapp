@@ -1,0 +1,100 @@
+
+ <div class="main-container" fxLayout="column" fxFlexFill>
+ <header>
+   <app-toolbar></app-toolbar>
+ </header>
+ <div class="main-content">
+   <!-- <router-outlet></router-outlet> -->
+   <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+       
+      </div>
+      <button mat-mini-fab matTooltip="Add New Task" matTooltipPosition="left" *ngIf="matAddButton" (click)="addNewTask()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-form-field class="example-full-width" *ngIf="matInputHide" >
+        <mat-label style="color: blue">Create Task</mat-label>
+        <textarea matInput placeholder="start typing....."  [(ngModel)] = "taskinputvalue" ></textarea>
+      </mat-form-field>
+      <button mat-button color="primary" *ngIf="saveButton" (click)="saveData(taskinputvalue)">save</button>
+      <button mat-button color="warn" *ngIf="cancelButton" (click)="makeCancel()">cancel</button>
+      
+     
+
+    </div>
+  
+    <div class="example-container">
+      <h2>Inprogress</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="progress"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of progress" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>
+ </div>
+ <footer>
+   <div class="mat-caption">&copy; Outlook. All Rights Reserved.</div>
+ </footer>
+</div>
+ 
+ 
+ <!-- <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+      </div>
+      
+      <button mat-mini-fab matTooltip="Add New Task" matTooltipPosition="left" *ngIf="matAddButton" (click)="addNewTask()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-form-field class="example-full-width" *ngIf="matInputHide" >
+        <mat-label>Create Task</mat-label>
+        <textarea matInput placeholder="start typing....." [(ngModel)] = "taskinputvalue" ></textarea>
+      </mat-form-field>
+      <button mat-button color="primary" *ngIf="saveButton" (click)="saveData(taskinputvalue)">save</button>
+      <button mat-button color="warn" *ngIf="cancelButton" (click)="makeCancel()">cancel</button>
+
+    </div>
+  
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div> -->
+
